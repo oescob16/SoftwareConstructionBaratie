@@ -13,3 +13,6 @@
 * When editing files always save files with ``ctrl + s`` otherwise webpack will run with the previous contents of the file rather than the new updated contents
 * Everytime you want to test functionaly with a live server you neeeeeeeed to run ``npm run build``  
 * If using VScode you can install an extension called ``liveserver`` to run the webpage
+
+## Template files
+Index files in both the ``src/`` and ``dist/`` folders are ment to serve as a template to get pages started. do not edit these.

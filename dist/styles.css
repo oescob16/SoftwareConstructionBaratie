@@ -1,0 +1,892 @@
+/* CSS FUNCTIONS */
+/*  ---------------------------------------Team 6-------------------------------------------------*/
+
+/*This function interacts with the logo from website  */
+.logo-image{
+    background: none;
+}
+
+/* This function interacts with anything inside the body tags */
+.body{
+    background-image: url(images/background.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.mapouter{
+    background-size: cover;
+    
+}
+
+.gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    background-size: cover;
+}
+
+/* This function interacts with the navbar */
+.navbar{
+    background-color: rgb(40, 40, 40);
+
+
+}
+
+/* This function interacts with the brand text under logo */
+.navbar-brand{
+    color: white;
+    font-family: none; /* ADD A FONT HERE TO CHANGE THE BRAND NAME FONT */
+}
+
+/* This function interacts with the links color without hovering in the navbar */
+.nav-link{
+    color: rgb(255, 255, 255);
+}
+
+/* This function interacts with the links color while hovering in the navbar */
+.nav-item{
+    color: rgb(111, 111, 111);
+}
+
+/* This function interacts with the location of the links (CURRENTLY NOT USING) */
+/* CHECK "navbar-nav ms-auto */
+.navbar-nav{
+    padding-left: none;
+}
+
+/* This function interacts with the login button */
+.login{
+    display: inline-block;
+    width: auto;
+    border: none;
+    color: black;
+    padding: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    background-color: lightskyblue;
+    text-decoration: none;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+/* This function interacts with the login button while hover */
+.login:hover{
+    background-color: white;
+    color: black;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+
+
+/* The following functions are for the body of the website (EVERYTHING UNDER NAVBAR) */
+
+/* This function interacts with the creation of the box in the Home Screen */
+#main-box{
+    margin-top: 3%;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px 3px black;
+    background-color: rgba(255, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* This function interacts with the line under the tabs in the main box */
+.nav-tabs{
+    border-bottom: 1px solid black;
+}
+
+/* This function interacts with all tabs in the main box */
+.nav-tabs li {
+    float: left;
+    margin-bottom: -1px;
+}
+
+/* This function interacts with all the "active" tab attributes */
+.nav-tabs li.active a{
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid black;
+    border-bottom-color: transparent;
+}
+
+/* This function interacts with the tabs forms/shape in the main box */
+.nav-tabs li a{
+    line-height: 1.5;
+    margin-right: 3px;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid transparent;
+}
+
+/* This function intreacts with the spacing/gap for the tabs in the main box */
+.nav li a{
+    position: relative;
+    display: block;
+    padding: 10px 40px;
+}
+
+/* This function interacts with the position of all tabs in the main box */
+.nav li{
+    position: relative;
+    display: block;
+}
+
+/* This function interacts with the nav elements inside the box */
+.nav{
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    
+}
+
+/* This function interacts with the link(line under the tab text) and removes it (other stuff can be added)*/
+a{
+    text-decoration: none;
+    color: #000000;
+    background-color: transparent;
+
+}
+
+/* This function interacts with the ul(underline) elements */
+ul{
+    display: block;
+    margin-top: 0;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    
+}
+
+/* This function interacts with size with all context */
+*{
+    box-sizing: border-box;;
+}
+
+/* This function interacts with the three tabs inside the box in Home Screen */
+.tabshead{
+    font-weight: bold;
+    font-size: 1.5em;
+    color: white;
+    display: none;
+}
+
+/* This function interacts with color of the content from the box */
+.tab-content{
+    color: white;
+    /* background: rgba(0, 0, 0, .5); */
+}
+
+/* This function interacts with the website's moto */
+#content{
+
+    text-align: center;
+    padding-top: 10%;
+    color: white;
+    text-shadow: 0px 4px 3px rgb(0, 0, 0),
+                    0px 8px 13px rgb(255, 255, 255), 
+                    0px 18px 23px rgb(2, 2, 2);
+
+}
+/* This function interacts with plane icon in flight tab */
+.fa, .fas{
+    font-weight: 900;
+    color: black;
+}
+/* This function interacts with the circle check icon tab */
+.far{
+    font-weight: 400;
+    color: black;
+}
+
+/* NEEDED TO DISPLAY THE ICONS */
+.fa, .fas{
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+
+
+/* ----------------------PSEUDO CODE----------------------------------------------------------------------- */
+
+.container::before{
+    display: table;
+    content: "";
+}
+
+.nav::before{
+    display: table;
+    content: "";
+}
+
+.fa-plane-departure::before{
+    content: "\f072";
+}
+
+.fa-check-cricle::before{
+    content: "\f2b9";
+}
+
+.fa-stream::before{
+    content: "\f017";
+}
+
+.fa-exchange-alt::before{
+    content: "\f362";
+}
+
+.nav::after{
+    clear: both;
+    display: table;
+    content: "";
+}
+
+::after, ::before{
+    box-sizing: border-box;
+}
+
+/* ----------------------END OF PSEUDO CODE----------------------------------------------------------------------- */
+
+
+/* ----------------------CONTENT INSIDE MAIN BOX----------------------------------------------------------------------- */
+
+
+/*  */
+.container{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* This function interacts with all div tags */
+div{
+    display: block;
+}
+
+/* This function interacts with the active tab*/
+.tab-content .active{
+    display: block;
+}
+
+/* This function lets content within the box show*/
+.fade.in{
+    opacity: 1;
+}
+
+/* This function is for fade properties*/
+.fade{
+    transition-property: opacity;
+    transition-duration: .15;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
+
+.h3, h3{
+    font-size: 24px;
+}
+
+h3{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+h1{
+    font-size: 80px;
+    color: white;
+}
+
+h2{
+    color: white;
+}
+
+h3{
+    color: white;
+}
+
+.paragraph{
+    color: white;
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+            0px 8px 13px rgb(217, 200, 200), 
+            0px 18px 23px rgb(2, 2, 2);
+}
+
+li{
+    color: white;
+    
+}
+
+.contact-link{
+
+    color: blue;
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+                    0px 1px 1px rgb(217, 200, 200), 
+                    0px 1px 1px rgb(2, 2, 2);
+}
+
+
+/* This is the size of the main box */
+.titlesize{
+    padding-left: 16px;
+    /* font-size: 8.5em; */
+}
+
+/* This function interacts with the form tag */
+form{
+    display: block;
+    margin-top: 0em;
+}
+
+/* This function interacts with the select tag */
+select{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-transform: none;
+    margin: 10, 10, 10, 10;
+    font: inherit;
+    color: black;
+}
+
+/* This function interacts with the input tag */
+input{
+    margin: 0;
+}
+
+/* This function interacts with the dropshow on the box in Home Screen */
+.drop{
+    color: black;
+    width: 30%;
+    height: 30%;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    margin-right: 1.2%;
+    margin-left: 1.2%;
+}
+    #content2{
+    text-align: center;
+    padding-top: 10%;
+    color: white;
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+                    0px 8px 13px rgb(217, 200, 200), 
+                    0px 18px 23px rgb(2, 2, 2);
+
+}
+
+.lab{
+    padding-left: 10px;
+    font-size: 8.5em; /* */
+}
+
+.information {
+	position: relative;
+	float: left;
+    
+}
+
+.column_r {
+	float: left;
+}
+
+.page_content {
+    
+	position: relative;
+	width: 100%;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCAA77;
+}
+/* START OF LOG IN FUNCTIONALITY STYLING */
+/* This is how a regular button will be styled */
+.button{
+    background: #fff;
+    color:#000000;
+    padding: 10px 15px;
+    font-weight: bolder;
+    border: 2px solid black;
+}
+/* This is how a button will be styled when hovered over */
+.button:hover{
+    background: grey;
+    color:aliceblue;
+}
+/* Specific styling for the home button on the navbar */
+.homeBtn{
+    background: #fff;
+    color:#000000;
+    padding: 10px 15px;
+    font-weight: bolder;
+    border: 2px solid black;
+}
+/* Home button style when hovered over */
+.homeBtn:hover{
+    background: grey;
+    color:aliceblue;
+}
+/* Login button style (inside login form)*/
+#loginBtn{
+    background: #fff;
+    color:#000000;
+    padding: 10px 15px;
+    font-weight: bolder;
+    border: 2px solid black;
+}
+/* Login button style when hovered over (inside login form)*/
+#loginBtn:hover{
+    background: grey;
+    color:aliceblue;
+}
+/* Styling of the text inside the login form */
+input{
+    margin: 20px auto;
+    display: block;
+    padding: 8px;
+    border: 1px solid gray;
+}
+/* Close button style (inside login form) */
+#closeBtn{
+    position: absolute;
+    border-radius:50%;
+    cursor:pointer;
+    width: 30px;
+    height: 30px;
+    top: 0.4px;
+    right: 10px;
+}
+/* Close button style when hovered over(inside login form) */
+#closeBtn:hover{
+    background-color: red;
+    color: #fff;
+}
+/* Styling of the popup window*/
+.popup{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* Styling of the contents inside the login popup */
+.popup-content{
+    height: 260px;
+    font-weight: 500px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+h4{
+    position: absolute;
+    display: none;
+    top: 45%;
+    font-size: 11px;
+}
+h5{
+    position: absolute;
+    display: none;
+    top: 68%;
+    font-size: 11px;
+}
+/* END OF LOG IN FUNCTIONALITY STYLING */
+/* CUSTOMER'S NAVBAR ADDITIONAL STYLING */
+/* Additional styling for the navbar */
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+/* Styling for the dropdown (options for customers) */
+  .dropdown {
+    float: left;
+  }
+/* Styling for the dropdown (options for customers) */
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+/* Styling for the content inside the dropdown (options for customers) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+/* Additional styling for the content inside the dropdown (options for customers) */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+/* Styling when hovering the dropdown (options for customers) */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+/* Styling for the content inside the dropdown (options for customers) */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+/* END OF: CUSTOMER'S NAVBAR ADDITIONAL STYLING */
+
+/*  FLIGHT SEATS*/
+*,*:before,*:after {
+    box-sizing: border-box;
+}
+
+
+.plane {
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+.pilotCabin {
+    height: 250px; 
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-bottom: 5px solid #d8d8d8;
+    
+    
+}
+
+
+.pilotCabin #content h1{
+    width: 60%;
+    margin: 100px auto 35px auto;
+   
+}
+.pilotCabin::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+     height: 500px;
+    width: 100%;
+    border-radius: 50%;
+    border-right: 5px solid #d8d8d8;
+    border-left: 5px solid #d8d8d8;
+    
+
+}
+
+.window{
+    
+    background-image: url(images/windows.png);
+    background-size: 250px;
+    width: 400px;
+    height: 120px;
+}
+
+.exit {
+    position: relative;
+    height: 50px;
+}
+
+.exit::before{
+    content: "EXIT";
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0px 2px;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    display: block;
+    position: absolute;
+    background: green;
+    color: white;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 0;
+}
+
+.exit::after{
+    content: "EXIT";
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0px 2px;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    display: block;
+    position: absolute;
+    background: green;
+    color: white;
+    top: 50%;
+    transform: translate(0, -50%);
+    right:0;
+
+}
+
+
+.fuselage {
+    border-right: 5px solid #d8d8d8;
+    border-left: 5px solid #d8d8d8;
+}
+  
+ol {
+    list-style :none;
+    padding: 0;
+    margin: 0;
+}
+  
+  
+.seats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start; 
+     
+}
+
+.seat {
+    display: flex;
+    flex: 0 0 14.28571428571429%;
+    padding: 5px;
+    position: relative;  
+    
+}
+
+.seat:nth-child(3) {
+    margin-right: 14.2857142857%;
+}
+
+/* selected seat */
+.seat input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+}
+
+.seat input[type=checkbox]:checked +label{
+    background: #011501;     
+}
+
+/* unavaible seat*/
+.seat input[type=checkbox]:disabled + label {
+    background: #ddd;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.seat input[type=checkbox]:disabled + label:after {
+  content: 'X';
+  text-indent: 0;
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.seat input[type=checkbox]:disabled + label:hover {
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.seat label {
+    display:block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.5rem;
+    padding: 4px 0;
+    background: rgba(52, 104, 32, 0.7);
+    border-radius: 5px;
+}
+
+.seat label:before {
+	content: "";
+	 position: absolute;
+	 width: 75%;
+	 height: 75%;
+	 top: 1px;
+	 left: 50%;
+	 transform: translate(-50%, 0%);
+	 background: rgba(255, 255, 255, .4);
+	 border-radius: 3px;
+}
+
+/*give shadow to the seat the cursor is pointing*/
+.seat label:hover {
+	 cursor: pointer;
+	 box-shadow: 0 0 0px 2px #cee6d7;
+     background: rgba(44,104,22,.7);
+}
+
+/*button that will be clicked after seats are selected */
+.addButton{
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: black;
+    background: rgb(230, 223, 223);
+    border-radius:10px;
+    margin:auto;
+    display:grid;
+
+}
+
+
+
+.cancelButton{
+    position: absolute;
+    overflow: hidden;
+    text-align:left;
+    color: white;
+    background-color: red;
+    border-radius:10px;
+    border-color: red;
+    margin:auto;
+    display:grid;
+
+}
+
+
+.container{
+    width: 970px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+
+.bandit-box{
+    background: white;
+    margin-bottom: 5px;
+    padding: 20px;
+}
+
+
+
+.seatInfo{
+    position: relative;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    display:grid;
+    
+}
+
+ /* ----------- Round Trip/One-Way ---------------------------------------------------------------------*/
+
+ .landing-air-booking-search-form .search-form--options{
+    height: 10px;
+    padding-left: 5px;
+ }
+
+ .landing-air-booking-search-form .search-form--options-trip{
+    width: 500px;
+    display: inline-block;
+ }
+
+ .radio-button-group_no-padding{
+    padding: 0;
+ }
+
+ .radio-button-group{
+    width: 50%;
+    border: 1px solid transparent;
+    display: inline-block;
+ }
+
+ .radio-button--content{
+    display: block;
+    margin-left: 18px;
+ }
+
+ .radio-button-group--description{
+    margin-left: 18px;
+ }
+
+ .radio-button{
+    display: inline-block;
+    position: relative;
+ }
+
+ .radio-button--input{
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 3%;
+ }
+
+
+
+ .input-group{
+    border-width: 0;
+    display: inline-block;
+    font: 13px/18px Arial;
+    margin: 0;
+    padding: 0;
+    color: white;
+ }
+
+ .swa-g-screen-reader-only{
+    border: 0;
+    clip: rect(0,0,0,0);
+    height: 0;
+    margin: -1;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+ }
+
+ .input-group_inline .input-group--list{
+    margin-left: -15px;
+ }
+
+ ul{
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+ }
+
+ .input-group_inline .input-group--item{
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.input-group_vertical-gap-medium .input-group--item{
+    margin-bottom: 14px;
+}
+
+.input-group_vertical-gap-medium .input-group--item:last-child{
+    margin-bottom: 0;
+}
+
+.flightListForm{
+    padding: 16px 20px 0;
+    width: 100%;
+}
+
+.landing-air-booking-search-form .search-form{
+    padding: 0 0 10px 22px;
+}
+
+
+
+/* .tab-pane .flightListForm{
+    margin-left: -28px;
+} */

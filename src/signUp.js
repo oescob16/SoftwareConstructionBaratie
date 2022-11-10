@@ -14,7 +14,7 @@ import {
 import {
     createUserWithEmailAndPassword,
     getAuth, 
-    nAuthStateChanged
+    onAuthStateChanged
 } from 'firebase/auth';
 
 //import { firebaseConfig } from "./firebaseConfig.js";

@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     index: './src/index.js',
     signUp: './src/signUp.js',
+    cart: './src/cart.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

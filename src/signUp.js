@@ -53,10 +53,11 @@ const addAccountForm = document.querySelector(".formBackround");
 addAccountForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    if (addAccountForm.psw.value !== addAccountForm.psw-repeat.value){
+    if (addAccountForm.psw.value !== addAccountForm.pswrepeat.value){
         console.log("Passwords do not match")
     }
     else {
+        const name = addAccountForm.name.value;
         const email = addAccountForm.email.value;
         const password = addAccountForm.psw.value;
         createUserWithEmailAndPassword(auth, email, password)
@@ -65,9 +66,9 @@ addAccountForm.addEventListener('submit', (event) => {
                 const user = userCred.user;
                 console.log(user);
                 setDoc(doc(db, "Users", user.uid), {
-                    Name: addAccountForm.first.value,
+                    Name: addAccountForm.name.value,
                     email: addAccountForm.email.value,
-                    password: addAccountForm.password.value
+                    password: addAccountForm.psw.value
                 })
                     .then(() => {
                         //location.href = './homePage.html#CreatedAccount';

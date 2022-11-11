@@ -23,6 +23,11 @@
     margin-top: 15px;
   }
 
+  .loginthing:hover{
+    color: whitesmoke;
+
+  }
+
   .modal-content{
     width: 200px; 
     height: 150px;
@@ -52,7 +57,10 @@
             <li><a href="about.html" style="color:#ffffff;"> <span class="glyphicon glyphicon-book"></span> About </a></li>
             <li><a href="menu.html"><span class="glyphicon glyphicon-cutlery"></span> Menu</a></li>
             
-            <li><a href="cart.html" ><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
+            <li>
+              
+              <button id="cartBtn" onclick="window.location.href='cart.html';" class="loginthing" hidden="hidden"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</button>
+            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li> <button id="userPage" class="loginthing" onclick="window.location.href='userPage.html';" hidden="hidden"> <span class="glyphicon glyphicon-briefcase"></span> User Page </button>

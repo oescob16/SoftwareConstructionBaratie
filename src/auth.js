@@ -88,11 +88,13 @@ el3.addEventListener('click', (event)=>{
 
         let elemLogin = document.getElementById("myBtn")
         let elemLogout = document.getElementById("logoutBtn")
+        let elemCart = document.getElementById("cartBtn")
         let elemSignUp= document.getElementById("signUp")
         let elemUserPage= document.getElementById("userPage")
 
         elemLogin.removeAttribute("hidden")
         elemLogout.setAttribute("hidden", "hidden")
+        elemCart.setAttribute("hidden", "hidden")
         elemUserPage.setAttribute("hidden", "hidden")
         elemSignUp.removeAttribute("hidden")
     })

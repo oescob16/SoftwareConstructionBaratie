@@ -36,3 +36,16 @@ initializeApp(firebaseConfig);
 const db = getFirestore()
 const auth = getAuth();
 const colRef = collection(db, 'Users')
+
+getDocs(colRef)
+  .then(snapshot => {
+    console.log(snapshot.docs)
+    let Users = []
+    snapshot.docs.forEach(doc => {
+      Users.push({ ...doc.data(), id: doc.id })
+    })
+    console.log(Users)
+  })
+  .catch(err => {
+    console.log(err.message)
+  })

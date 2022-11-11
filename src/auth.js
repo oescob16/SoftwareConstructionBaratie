@@ -6,9 +6,11 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     onAuthStateChanged,
-    signOut
+    signOut,
+    setPersistence,
+    browserLocalPersistence
 } from "firebase/auth";
-
+import { message } from './alert'
 
 const firebaseConfig = {
     apiKey: "AIzaSyBZiOp9t_Orzgm8PQlZB5QNzF9mt_CXkY4",
@@ -42,29 +44,33 @@ if(el2){
         event.preventDefault();
         const email = document.getElementById("loginemailLive").value;
         const password = document.getElementById("loginpasswordLive").value;
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCred)=>{
-            //Created & Signed In
-            const user = userCred.user;
-            console.log(user)
-            document.querySelector("h4").style.display="none";
-            document.querySelector("h5").style.display="none";
-            document.querySelector(".popup").style.display="none";
-        })
-        .catch((error)=>{
-            var errorCode = error.code;
-            var errorMessage = error.message;
-        //functionality of displaying the alerts depending on user input
-            if (errorCode === 'auth/wrong-password'){
-                console.log('Wrong email or password, please try again.');
-                document.querySelector("h4").style.display="none";
-                document.querySelector("h5").style.display="flex";
-            } else{
-                console.log('Wrong password, please try again.');
-                document.querySelector("h5").style.display="none";
-                document.querySelector("h4").style.display="flex";
-            }
-        })
+
+        setPersistence(auth, browserLocalPersistence)
+            .then( () => {
+                signInWithEmailAndPassword(auth, email, password)
+                    .then((userCred)=>{
+                        //Created & Signed In
+                        const user = userCred.user;
+
+                        let elemLogin = document.getElementById("myBtn")
+                        let elemLogout = document.getElementById("logoutBtn")
+
+                        elemLogin.setAttribute("hidden", "hidden")
+                        elemLogout.removeAttribute("hidden")
+
+                        message("Successfully Signed In", "Welcome " + user.email, "success", false)
+
+                    })
+                    .catch((error)=>{
+                        var errorCode = error.code;
+                        //functionality of displaying the alerts depending on user input
+                        if (errorCode === 'auth/wrong-password'){
+                            message("Wrong Password", "Try again!", "error", true)
+                        } else if (errorCode === 'auth/invalid-email' || errorCode === 'auth/user-not-found') {
+                            message("Wrong Email", "Try again!", "error", true)
+                        }
+                    })
+            })
     })
 }
 //Sign out functionality
@@ -73,22 +79,17 @@ el3.addEventListener('click', (event)=>{
     event.preventDefault();
     signOut(auth)
     .then(()=>{
-        console.log("Signed Out")
+
+        message("Successfully Signed Out", "Good-bye!", "success", false)
+
+        let elemLogin = document.getElementById("myBtn")
+        let elemLogout = document.getElementById("logoutBtn")
+
+        elemLogin.removeAttribute("hidden")
+        elemLogout.setAttribute("hidden", "hidden")
     })
     .catch((err)=>{
-        console.log(err)
-    })
-})
-//Admin asign out button
-var el4 = document.getElementById('adminlogoutBtn');
-el4.addEventListener('click', (event)=>{
-    event.preventDefault();
-    signOut(auth)
-    .then(()=>{
-        console.log("Signed Out")
-    })
-    .catch((err)=>{
-        console.log(err)
+        message("An error occured", err, "error", true)
     })
 })
 
@@ -109,32 +110,11 @@ onAuthStateChanged(auth, (user)=>{
 const monitorAuthState = async () => {
     onAuthStateChanged(auth, user =>{
         if (user) {
-            user.getIdTokenResult()
-            .then(idTokenResult =>{
-                console.log(idTokenResult.claims['role'])
-                //if statement to check if user is a customer
-                if(idTokenResult.claims['role'] == 'user'){
-                    //display = "none" ===> hides all items using none
-                    genItems.forEach(item=> item.style.display = "none")
-                    //display = "block" ===> displays all items using none
-                    customItems.forEach(item=> item.style.display = "block")
-                    adminItems.forEach(item=> item.style.display = "none")
-                    
-                }
-                //else statement for admin items
-                else if(idTokenResult.claims['role'] == 'admin'){
-                    genItems.forEach(item=> item.style.display = "none")
-                    customItems.forEach(item=> item.style.display = "none")
-                    adminItems.forEach(item=> item.style.display = "block")
-                }
-            })
             console.log("logged in")
         }
         else{
             //else statement to display for general public
-            genItems.forEach(item=> item.style.display = "block")
-            customItems.forEach(item=> item.style.display = "none")
-            adminItems.forEach(item=> item.style.display = "none")
+            console.log("sign out")
         }
     })
 }

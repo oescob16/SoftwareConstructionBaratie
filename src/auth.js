@@ -54,9 +54,13 @@ if(el2){
 
                         let elemLogin = document.getElementById("myBtn")
                         let elemLogout = document.getElementById("logoutBtn")
+                        let elemSignUp= document.getElementById("signUp")
+                        let elemUserPage= document.getElementById("userPage")
 
                         elemLogin.setAttribute("hidden", "hidden")
                         elemLogout.removeAttribute("hidden")
+                        elemUserPage.removeAttribute("hidden")
+                        elemSignUp.setAttribute("hidden", "hidden")
 
                         message("Successfully Signed In", "Welcome " + user.email, "success", false)
 
@@ -84,9 +88,13 @@ el3.addEventListener('click', (event)=>{
 
         let elemLogin = document.getElementById("myBtn")
         let elemLogout = document.getElementById("logoutBtn")
+        let elemSignUp= document.getElementById("signUp")
+        let elemUserPage= document.getElementById("userPage")
 
         elemLogin.removeAttribute("hidden")
         elemLogout.setAttribute("hidden", "hidden")
+        elemUserPage.setAttribute("hidden", "hidden")
+        elemSignUp.removeAttribute("hidden")
     })
     .catch((err)=>{
         message("An error occured", err, "error", true)

@@ -40,12 +40,15 @@ const colRef = collection(db, 'Users')
 getDocs(colRef)
   .then(snapshot => {
     console.log(snapshot.docs)
-    let Users = []
+    let users = []
     snapshot.docs.forEach(doc => {
       Users.push({ ...doc.data(), id: doc.id })
     })
-    console.log(Users)
+    console.log(users)
   })
   .catch(err => {
     console.log(err.message)
   })
+
+
+  console.log("Hello World")

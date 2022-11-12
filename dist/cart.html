@@ -1,9 +1,16 @@
 <html lang="en">
+<!-- Head Section with link to CSS -->
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles from Boostrap and the css file -->
+    
+    <title>Cart</title> <!--  Page Name-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
 </head>
 <style>
     /* Login css content */
@@ -157,7 +164,32 @@
     }
 
 </style>-->
-<body>
+<!-- Body Section -->
+<body class="body">
+    <nav class="navbar navbar-inverse navbar-expand-lg py-5 navbar-dark bg-dark shadow-sm">
+        <div class="container-fluid"> 
+          <ul class="nav navbar-nav">
+            <li > <img src="images/logo.png" width="100" alt="" class="d-inline-block align-middle mr-2"> </li>
+            <li> <a href="mainPage.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            
+            <li><a href="about.html"> <span class="glyphicon glyphicon-book"></span> About </a></li>
+            <li><a href="menu.html"> <span class="glyphicon glyphicon-cutlery"></span> Menu</a></li>
+            
+            <li><a href="cart.html" style="color:#ffffff;"><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="userPage.html"><span class="glyphicon glyphicon-briefcase"></span> User Page</a></li>
+            <li><a href="signUp.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li>
+              <button id="myBtn" class="loginthing"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+            </li>
+            <li>
+              <button id="logoutBtn" class="loginthing" hidden="hidden"><span class="glyphicon glyphicon-log-out"></span> Logout</button>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    
     <h1>Welcome to Cart</h1>
     <h2>Cart Items</h2>
     <div class="cart_items_box">
@@ -171,5 +203,12 @@
     </div>
 
     <script src="cart.bundle.js"></script>
+    <div class="footer-dark">
+        <p class="copyright">El-Baratie-Mexicano.com &copy; 2022</p>
+    </div>
+    
+  
+
+    
 </body>
 </html>

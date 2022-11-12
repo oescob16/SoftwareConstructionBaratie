@@ -23,6 +23,8 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "firebase": "^9.13.0"
+    "firebase": "^9.13.0",
+    "mdbootstrap": "^4.20.0",
+    "sweetalert": "^2.1.2"
   }
 }

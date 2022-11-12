@@ -6,6 +6,7 @@
 3. In your terminal at the projects location run ``npm i webpack webpack-cli -D``
 4. In your terminal at the projects location run ``npm run build``
 5. In your terminal at the projects location run ``npm install firebase``
+6. In your terminal at the projects location run ``npm install --save sweetalert``
 
 ## Important Notes
 * Do not edit anything in ``node_modules``, ``package-lock.json``, ``package.json``, ``webpack.config.js``, or ``firebase.Config.js`` without letting the team know. These are core files that can brick the project.

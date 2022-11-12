@@ -10,6 +10,7 @@ import {
     onSnapshot,
     doc,
     getDoc,
+    connectFirestoreEmulator,
 } from 'firebase/firestore'
 
 import {
@@ -41,13 +42,18 @@ const colRef = collection(db, 'Users');
 const userDocRef = doc(db,"Users/"+"e1WRimGxuINs1hKIUqLVeaJZEw43")
 const userCartcolref = collection(db,"Users/"+"e1WRimGxuINs1hKIUqLVeaJZEw43"+"/CartItems");
 
-onSnapshot(userCartcolref, (snapshot) => {
-  let cartItems = []
-  snapshot.docs.forEach((doc) => {
-    cartItems.push([doc.id, doc.data().price, doc.data().quantity])
+let cartItems = []
+function cartArray(callBack) {
+  onSnapshot(userCartcolref, (snapshot) => {
+    snapshot.docs.forEach((doc) => {
+      cartItems.push([doc.id, doc.data().price, doc.data().quantity])
+    })
+    callBack(cartItems)
   })
-  console.log(cartItems)
-})
+}
+  
+
+//console.log(cartItems)
 
 // function getCartArray(callBack) {
 //   let cartItems = []
@@ -63,9 +69,9 @@ onSnapshot(userCartcolref, (snapshot) => {
 //   });
 // }
 
-// getCartArray((array) =>{
-//   console.log(array)
-// });
+cartArray((array) =>{
+  console.log(array)
+});
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

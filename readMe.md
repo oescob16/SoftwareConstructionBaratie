@@ -6,6 +6,7 @@
 3. In your terminal at the projects location run ``npm i webpack webpack-cli -D``
 4. In your terminal at the projects location run ``npm run build``
 5. In your terminal at the projects location run ``npm install firebase``
+6. In your terminal at the projects location run ``npm install --save sweetalert``
 
 ## Important Notes
 * Do not edit anything in ``node_modules``, ``package-lock.json``, ``package.json``, ``webpack.config.js``, or ``firebase.Config.js`` without letting the team know. These are core files that can brick the project.
@@ -13,3 +14,8 @@
 * When editing files always save files with ``ctrl + s`` otherwise webpack will run with the previous contents of the file rather than the new updated contents
 * Everytime you want to test functionaly with a live server you neeeeeeeed to run ``npm run build``  
 * If using VScode you can install an extension called ``liveserver`` to run the webpage
+* If useing chromeium based browser you can access you dev console log by pressing ``ctrl + shift + j``
+
+
+## Template files
+Index files in both the ``src/`` and ``dist/`` folders are ment to serve as a template to get pages started. do not edit these.

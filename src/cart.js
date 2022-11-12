@@ -42,17 +42,34 @@ const colRef = collection(db, 'Users');
 const userDocRef = doc(db,"Users/"+"e1WRimGxuINs1hKIUqLVeaJZEw43")
 const userCartcolref = collection(db,"Users/"+"e1WRimGxuINs1hKIUqLVeaJZEw43"+"/CartItems");
 
-let cartItems = []
+var itemTable = document.getElementById("item_list")
+// let cartItems = []
 function cartArray(callBack) {
   onSnapshot(userCartcolref, (snapshot) => {
     snapshot.docs.forEach((doc) => {
-      cartItems.push([doc.id, doc.data().price, doc.data().quantity])
+      addItemtoTable(doc.id, doc.data().price, doc.data().quantity)
     })
-    callBack(cartItems)
+    // callBack(cartItems)
   })
 }
   
+function addItemtoTable(name,price,quantity){
+  var tbody1 = document.getElementById("item_list");
+  var trow = document.createElement("tr");
+  var td0 = document.createElement("td");
+  var td1 = document.createElement("td");
+  var td2 = document.createElement("td");
 
+  td0.innerHTML = name;
+  td1.innerHTML = price;
+  td2.innerHTML = quantity;
+  
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+  trow.appendChild(td2);
+  
+  tbody1.appendChild(trow);
+}
 //console.log(cartItems)
 
 // function getCartArray(callBack) {
@@ -69,9 +86,9 @@ function cartArray(callBack) {
 //   });
 // }
 
-cartArray((array) =>{
-  console.log(array)
-});
+// cartArray((array) =>{
+//   console.log(array)
+// });
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

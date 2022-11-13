@@ -3,17 +3,119 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel = "icon" href="images/onep.ico" type = "image/x-icon">
 </head>
 <style>
+    .loginthing{
+      border: none;
+      background-color: #222222;
+      color: #9d9d9d;
+      margin-top: 15px;
+    }
+  
+    .loginthing:hover{
+      color: whitesmoke;
+  
+    }
+  
+    .modal-content{
+      width: 200px; 
+      height: 150px;
+      position: absolute;
+      left: 950px;
+      top: 50px;
+  
+    }
+  
+    .popup-content{
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+  
+    h1 {
+    margin-top: 0;
+    font-size: 3rem;
+    display: inline-block;
+    font-family:cursive;
+    color: black;
+  }
+  h1 div {
+    position: relative;          
+    float: left;
+  }
+  h1 div:first-child {
+    color: #3498db;
+    margin-right: 1rem;
+  }
+  .loginthing:hover{     color: whitesmoke;    }   
+</style>
+<!-- <style>
     .carttablebox{
         background-color: aqua;
         border: 10px;
         text-align: right;
     }
 
-</style>
+</style> -->
 <body>
+    <nav class="navbar navbar-inverse navbar-expand-lg py-5 navbar-dark bg-dark shadow-sm">
+        <div class="container-fluid"> 
+          <ul class="nav navbar-nav">
+            <li > <img src="images/logo.png" width="100" alt="" class="d-inline-block align-middle mr-2"> </li>
+            <li> <a href="mainPage.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            
+            <li><a href="about.html"> <span class="glyphicon glyphicon-book"></span> About </a></li>
+            <li><a href="menu.html"><span class="glyphicon glyphicon-cutlery"></span> Menu</a></li>
+            
+            <li>
+              
+              <button id="cartBtn" style="color:#ffffff;" onclick="window.location.href='cart.html';" class="loginthing" hidden="hidden"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</button>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li> <button id="userPage" class="loginthing" onclick="window.location.href='userPage.html';" hidden="hidden"> <span class="glyphicon glyphicon-briefcase"></span> User Page </button>
+            </li>
+            <li>
+              <button id="signUp" class="loginthing" onclick="window.location.href='signUp.html';"><span class="glyphicon glyphicon-user"></span> Sign Up</button>
+            </li>
+            <li>
+              <button id="myBtn" class="loginthing"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+            </li>
+            <li>
+              <button id="logoutBtn" class="loginthing" hidden="hidden"><span class="glyphicon glyphicon-log-out"></span> Logout</button>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="popup" id="loginLive">
+          <div class="popup-content">
+              <img src="images/login.png"
+              width="30" 
+              height="30"
+              />
+              
+              <form>
+                  <input type="text" placeholder="Email" id="loginemailLive" required>
+                  <input type="password" placeholder="Password" id="loginpasswordLive" required>
+                  
+                  <input type="submit" id="login">
+              </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
     <h1>Welcome to Cart</h1>
     <h2>Cart Items</h2>
     <div class="cart_items">
@@ -23,9 +125,9 @@
                 <th>Price:</th>
                 <th>Quantity:</th>
             </tr>
-        </table>            
+        </table> 
+        <p id="total">Total: </p>           
     </div>
-
     <script src="cart.bundle.js"></script>
 </body>
 </html>

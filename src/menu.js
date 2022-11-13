@@ -110,5 +110,5 @@ function addToCart(foodItem){
 // $('.add-to-cart-btn').bind('click', () => {
 //     //addToCart(foodItem);
     
-    
 // });
+

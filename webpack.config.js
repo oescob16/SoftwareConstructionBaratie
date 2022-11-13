@@ -5,10 +5,11 @@ module.exports = {
   entry: {
     index: './src/index.js',
     menu:'./src/menu.js',
+    signUp: './src/signUp.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].[name].bundle.js'
   },
   watch: true
 }

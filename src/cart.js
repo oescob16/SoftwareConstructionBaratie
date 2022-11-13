@@ -112,7 +112,7 @@ onAuthStateChanged(auth, (user) => {
           for(var i = 0; i < array.length; i++) {
             count += (array[i][1]*array[i][2]);
           }
-          total.innerHTML = "Total :"+count;
+          total.innerHTML = "Total: $"+count;
         })
       }
 
@@ -200,7 +200,7 @@ onAuthStateChanged(auth, (user) => {
         del.id = "d"+index;
 
         td0.innerHTML = name;
-        td1.innerHTML = price;
+        td1.innerHTML = "$"+price;
         td2.innerHTML = quantity;
         plus.innerHTML = plus_val;
         plus.onclick = incrementQuantity;

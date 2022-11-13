@@ -101,7 +101,7 @@ onAuthStateChanged(auth, (user) => {
 
       const plus_val = "+";
       const minus_val = "-";
-      const del_val = 'X';
+      const del_val = 'Remove';
       const total = document.getElementById("total");
       
       changeTotal();
@@ -112,7 +112,7 @@ onAuthStateChanged(auth, (user) => {
           for(var i = 0; i < array.length; i++) {
             count += (array[i][1]*array[i][2]);
           }
-          total.innerHTML = "Total: $"+count;
+          total.innerHTML = "<b> Total: </b> $"+count;
         })
       }
 
@@ -195,15 +195,17 @@ onAuthStateChanged(auth, (user) => {
         var plus = document.createElement("button");
         var min = document.createElement("button");
         var del = document.createElement("button");
+        var br = document.createTextNode('    .');
         plus.id = index;
         min.id = index+1;
         del.id = "d"+index;
 
         td0.innerHTML = name;
         td1.innerHTML = "$"+price;
-        td2.innerHTML = quantity;
+       
         plus.innerHTML = plus_val;
         plus.onclick = incrementQuantity;
+        td2.innerHTML = quantity;
         min.innerHTML = minus_val;
         min.onclick = decrementQuantity;
         del.innerHTML = del_val;
@@ -211,9 +213,11 @@ onAuthStateChanged(auth, (user) => {
 
         trow.appendChild(td0);
         trow.appendChild(td1);
-        trow.appendChild(td2);
+        
         trow.appendChild(plus);
+        trow.appendChild(td2);
         trow.appendChild(min);
+        trow.appendChild(br);
         trow.appendChild(del);
         tbody1.appendChild(trow);
         console.log("addItemtoTable")

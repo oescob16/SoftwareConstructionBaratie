@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     index: './src/index.js',
     signUp: './src/signUp.js',
+    login: ['./src/loginFunctions.js', './src/auth.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -12,3 +13,4 @@ module.exports = {
   },
   watch: true
 }
+

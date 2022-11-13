@@ -4,8 +4,9 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    menu: ['./src/menu.js', './src/loginFunctions.js', './src/auth.js'],
+    menu: ['./src/loginFunctions.js', './src/auth.js', './src/menu.js'],
     signUp: './src/signUp.js',
+    login: ['./src/loginFunctions.js', './src/auth.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

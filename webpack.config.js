@@ -4,7 +4,7 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    menu:'./src/menu.js',
+    menu: ['./src/menu.js', './src/loginFunctions.js', './src/auth.js'],
     signUp: './src/signUp.js',
   },
   output: {

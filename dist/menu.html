@@ -37,269 +37,33 @@
     </nav>
 
     <section class="menu" id="menu">
+        
         <h1 class="heading">Our Menu</h1>
         <hr style="height:1px;border-width:1px;background-color:rgb(79, 79, 79);margin-bottom:5rem;">
-
+        
+        <!-- Appetizers Section -->
         <h2 class="foodtitle">Appetizers</h2>
-        <div class="box-container">
-            <div class="box">
-                <img src="images/chips.png" alt="">
-                <div class="content">
-                    <h3>Chips and Salsa</h3>
-                    <p>Homemade corn tortilla chips with our signature Baratie spicy salsa roja.</p>
-                    <p>$7</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart" onclick="addToCart('Chips and Salsa')"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/guacamole.png" alt="">
-                <div class="content">
-                    <h3>Chips and Guac</h3>
-                    <p>Homemade corn tortilla chips with our delicious guacamole sauce topped with tomato, onion, and jalapeño.</p>
-                    <p>$9</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/ceviche.png" alt="">
-                <div class="content">
-                    <h3>Shrimp Ceviche</h3>
-                    <p>A tostada topped with a hearty portion of fresh, never frozen shrimp, lime juice, onion, cilantro, and avocado.</p>
-                    <p>$15</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/quesadillas.png" alt="">
-                <div class="content">
-                    <h3>Classic Mexican Quesadillas</h3>
-                    <p>Three queso and chorizo quesadillas accompanied with a small portion of our famous guacamole and salsa.</p>
-                    <p>$10</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/queso.png" alt="">
-                <div class="content">
-                    <h3>Queso Fundido</h3>
-                    <p>Deliciously flambéed queso with chorizo, accompanied with our homemade corn tortilla chips.</p>
-                    <p>$7</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-        </div>
-
+        <div id="menu-list-appetizers" class="box-container"></div>
         <hr style="height:1px;border-width:1px;background-color:rgb(79, 79, 79);margin-bottom:5rem;margin-top:10rem;">
 
+        <!-- Entrees Section -->
         <h2 class="foodtitle">Entrees</h2>
-        <div class="box-container">
-            <div class="box">
-                <img src="images/enchiladas.png" alt="">
-                <div class="content">
-                    <h3>Enchiladas Rojas Caseras</h3>
-                    <p>Three chicken or cheese enchiladas in mama's chile colorado homemade sauce.</p>
-                    <p>$10</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart" onclick="addToCart('Enchiladas Rojas Caseras')" \>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/enchiladas v.png" alt="">
-                <div class="content">
-                    <h3>Enchiladas Verdes Caseras</h3>
-                    <p>Three chicken or cheese enchiladas in mama's homemade tomatillo sauce.</p>
-                    <p>$10</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/chilaquiles v.png" alt="">
-                <div class="content">
-                    <h3>Chilaquiles Suizos</h3>
-                    <p>Delicious homemade tostadas bathed in freshly made salsa suiza.</p>
-                    <p>$10</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/tacos.png" alt="">
-                <div class="content">
-                    <h3>Classic Mexican Tacos al Pastor</h3>
-                    <p>Five tacos al pastor with salsa verde and roja, topped with cilantro. Choice of pineapple.</p>
-                    <p>$10</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/sopes.png" alt="">
-                <div class="content">
-                    <h3>Sopes</h3>
-                    <p>Three delicious homemade sopes with crema, cheese, and lettuce. Choose between beans, chicken, or steak.</p>
-                    <p>$8</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/torta ahogada.png" alt="">
-                <div class="content">
-                    <h3>Torta Ahogada</h3>
-                    <p>Chicken torta on a freshly baked bread topped with onion, cheese, and avocado. Bathed in salsas.</p>
-                    <p>$12</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/cocktail.png" alt="">
-                <div class="content">
-                    <h3>Shrimp Cocktail</h3>
-                    <p>Clamato-based tomato broth with large shrimp, avocado, cilantro, lime, onion, celery, and cucumber.</p>
-                    <p>$17</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/fish tacos.png" alt="">
-                <div class="content">
-                    <h3>Fish Tacos a la Veracruz</h3>
-                    <p>Three snapper fish tacos with a zesty chipotle and chile sauce, topped with oregano, bell pepper, and onion.</p>
-                    <p>$15</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-            <div class="box">
-                <img src="images/molcajete.png" alt="">
-                <div class="content">
-                    <h3>Molcajete</h3>
-                    <p>Choice of shrimp or steak tossed in a spicy tomatillo broth, with avocado, tostadas, jalapeños, and more.</p>
-                    <p>$17</p>
-                    <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                </div>
-            </div>
-        </div>
+        <div id="menu-list-entrees" class="box-container"></div>
         <p style="padding:3rem;color: rgb(106, 106, 106);font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">*All of our enchiladas and chilaquiles come with a side of abuelita's refried beans.</p>
-
         <hr style="height:1px;border-width:1px;background-color:rgb(79, 79, 79);margin-bottom:5rem;margin-top:3rem;">
 
+        <!-- Drinks Section -->
         <h2 class="foodtitle">Drinks</h3>
-            <div class="box-container">
-                <div class="box">
-                    <img src="images/jamaica.png" alt="">
-                    <div class="content">
-                        <h3>Agua de Jamaica</h3>
-                        <p>An infusion of dried hibiscus flowers. Cool and refreshing.</p>
-                        <p>$3</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/horchata.png" alt="">
-                    <div class="content">
-                        <h3>Agua de Horchata</h3>
-                        <p>A milk-based drink infused with vanilla, sweet rice, and cinnamon. Sweet and smooth.</p>
-                        <p>$3</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/verde.png" alt="">
-                    <div class="content">
-                        <h3>Jugo Verde</h3>
-                        <p>A healthy, all-natural smoothie blend of pineapple, spinach, cucumber, green apple and nopales.</p>
-                        <p>$5</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/naranja.png" alt="">
-                    <div class="content">
-                        <h3>Jugo de Naranja</h3>
-                        <p>Our spin on the classic orange juice. All natural, freshly squeezed juice with pulp.</p>
-                        <p>$5</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/zanahoria.png" alt="">
-                    <div class="content">
-                        <h3>Jugo de Zanahoria</h3>
-                        <p>A wonderful and natural blend of sweet carrots with just a hint of orange.</p>
-                        <p>$5</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/coca.png" alt="">
-                    <div class="content">
-                        <h3>La Famosa Coca Mexicana</h3>
-                        <p>Who needs a description for our world-famous Mexican coke?</p>
-                        <p>$4</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/agua.png" alt="">
-                    <div class="content">
-                        <h3>El Viejo Confiable - Agua Natural</h3>
-                        <p>A fresh cup of ice water.</p>
-                        <p>$1</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-            </div>
+        <div id="menu-list-drinks" class="box-container"></div>
+        <hr style="height:1px;border-width:1px;background-color:rgb(79, 79, 79);margin-bottom:5rem;margin-top:3rem;">
 
-            <hr style="height:1px;border-width:1px;background-color:rgb(79, 79, 79);margin-bottom:5rem;margin-top:3rem;">
-
+        <!-- Desserts Section -->
         <h2 class="foodtitle">Desserts</h3>
-            <div class="box-container">
-                <div class="box">
-                    <img src="images/flan.png" alt="">
-                    <div class="content">
-                        <h3>Chipotle Flan</h3>
-                        <p>A delicious slice of sweet flan infused with chipotle.</p>
-                        <p>$5</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/cake.png" alt="">
-                    <div class="content">
-                        <h3>Chocolate Cake</h3>
-                        <p>A slice of our famous triple chocolate cake.</p>
-                        <p>$6</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/chocoflan.png" alt="">
-                    <div class="content">
-                        <h3>Choco-Flan</h3>
-                        <p>Can't decide between our flan and chocolate cake? Try our choco-flan!</p>
-                        <p>$6</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/carlota.png" alt="">
-                    <div class="content">
-                        <h3>Lemon Carlota</h3>
-                        <p>A moist slice of vanilla spongecake filled with a lemon custard. Perfect for a sunny day.</p>
-                        <p>$6</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/pecan.png" alt="">
-                    <div class="content">
-                        <h3>Chocolate Pecan Tart</h3>
-                        <p>A slice of our chocolate-cinnamon pecan tart.</p>
-                        <p>$6</p>
-                        <input class="add-to-cart-btn" type="button" value="Add to Cart"\>
-                    </div>
-                </div>
-            </div>
-        
+        <div id="menu-list-desserts" class="box-container"></div>
+
     </section>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-  <script src="js/menu.js"></script>
+  <script src="menu.bundle.js"></script>
 </body> 

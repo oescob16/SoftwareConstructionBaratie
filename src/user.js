@@ -1,8 +1,19 @@
+
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from "firebase/analytics";
+
+import {
+    getFirestore,
+    collection,
+    doc,
+    getDoc,
+    onSnapshot,
+} from 'firebase/firestore'
+
 import {
     getAuth,
     onAuthStateChanged,
+    updateCurrentUser,
     updateProfile
 } from "firebase/auth";
 
@@ -16,15 +27,48 @@ const firebaseConfig = {
     measurementId: "G-748VR9HX3T"
   };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+
+//Initialize Services
 const auth = getAuth();
+const db = getFirestore();
+const usersRef = collection(db, "Users");
 
 console.log("auth.js: RUNNING");
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        var userDetails;
+
+        var name, email;
+
+        const docRef = doc(db, "Users", user.uid.toString());
+        onSnapshot(docRef, (doc) => {
+            console.log(doc.data(), doc.id);
+            name = doc.data().toString();
+        })
+
+        document.write(name);
+
+        if(docRef.exists()){
+            console.log(docRef.data());
+            mainIfAuth()
+        } else {
+            mainIfNotAuth();
+        }
+    } else {
+        mainIfNotAuth();
+    }
+});
+
+async function documentGetter(){
+    return await getDoc(doc(db, 'Users', user.uid));
+}
 
 function mainIfAuth(){
 
     displayName(auth.currentUser.Name);
-    displayEmail(auth.currentUser.Email);
+    displayEmail(auth.currentUser.email);
 
     var el1 = document.getElementById('editEmail');
     if(el1){
@@ -84,16 +128,8 @@ function mainIfAuth(){
 }
 
 function mainIfNotAuth(){
-    document.write("You must be logged in to view this page");
+    document.write("<a href='"+"mainPage.html"+"'>Mainpage</a>");
 }
-
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    mainIfAuth()
-  } else {
-    mainIfNotAuth();
-  }
-});
 
 function editUsername(pAuth, newName){
     updateProfile(pAuth.currentUser, {
@@ -135,6 +171,29 @@ function displayName(usersName){
 
 function displayEmail(usersEmail){
     document.getElementById("displayEmail").innerHTML = usersEmail;
+}
+
+class User {
+
+    constructor (Name, email, password) {
+        this.Name = Name;
+        this.email = email;
+        this.password = password;
+    }
+
+    userConverter = {
+        toFirestore: (user) => {
+            return {
+                Name : user.Name,
+                email : user.email,
+                password : user.password
+            };
+        },
+        fromFirestore: (snapshot, options) => {
+            const data = snapshot.data(options);
+            return new User(data.Name, data.email, data.password);
+        }
+    }
 }
 
 

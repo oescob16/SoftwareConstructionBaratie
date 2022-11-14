@@ -114,7 +114,7 @@ function updateUserData(user){
 }
 
 function mainIfNotAuth(){
-    document.write("<a href='"+"mainPage.html"+"'>Mainpage</a>");
+    window.location.href = "mainPage.html";
 }
 
 function editUsername(pAuth, newName){

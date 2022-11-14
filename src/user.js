@@ -166,6 +166,7 @@ function editEmail(pAuth, newEmail){
         Email: newEmail
     }).then(() => {
         console.log("Your Email has been updated!");
+        editEmailInFirebase(newEmail);
     }).catch((error) => {
         console.log("Could not update your password!");
         console.log(error);

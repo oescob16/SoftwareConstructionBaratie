@@ -192,7 +192,7 @@ function displayEmail(usersEmail){
 }
 
 function displayUserData(user){
-    getDocs(usersRef).then(snapshot => {//
+    getDocs(usersRef).then(snapshot => {
         console.log(snapshot.docs)
         snapshot.docs.forEach(
             function(ChildSnapshot){

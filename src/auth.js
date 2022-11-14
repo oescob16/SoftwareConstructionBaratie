@@ -1,5 +1,3 @@
-// -- Javascript code used by login.html mainly to verify user credentials --
-// ----------------------------------------Team 6--------------------------------------------------
 import { initializeApp } from 'firebase/app';
 import {
     getAuth,

@@ -4,7 +4,15 @@ import {
     getFirestore,
     collection,
     getDocs,
+    setDoc,
+    doc,
 } from 'firebase/firestore';
+
+import {
+    getAuth, 
+    onAuthStateChanged
+} from 'firebase/auth';
+import { setUserId } from 'firebase/analytics';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBZiOp9t_Orzgm8PQlZB5QNzF9mt_CXkY4",
@@ -21,6 +29,7 @@ initializeApp(firebaseConfig);
 
 // init services
 const db = getFirestore();
+const auth = getAuth();
 
 // collection ref
 const colRef = collection(db, 'Food');
@@ -45,7 +54,8 @@ function addItemsToMenu(name, description, image, price, type){
     _button.className = "add-to-cart-btn";
     _button.type = "button";
     _button.value = "Add to Cart";
-    _button.onclick = () => alert(name);
+    _button.onclick = () => addToCart(name, price);
+    // _button.onclick = () => alert(name);
     
     _name.innerHTML = name;
     _description.innerHTML = description;
@@ -102,13 +112,23 @@ function fetchAllData() {
 window.onload(fetchAllData());
 
 // TODO: Implement this function too add selected food item to cart in db
-function addToCart(foodItem){
-    alert(foodItem);
+function addToCart(itemName, itemPrice){
+    onAuthStateChanged(auth, (user) =>{
+        alert("Added to cart");
+        console.log("Current userID (uid):", user.uid);
+        const userCart = doc(db,"Users/"+user.uid+"/CartItems/" + itemName);
+        let itemQuantity = 1;
+        setDoc(userCart,{
+            price: itemPrice,
+            name: itemName,
+            quantity: itemQuantity,
+        })
+    })
 };
 
 // TODO
 // $('.add-to-cart-btn').bind('click', () => {
 //     //addToCart(foodItem);
     
-    
 // });
+

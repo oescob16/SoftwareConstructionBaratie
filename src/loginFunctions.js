@@ -22,14 +22,23 @@ var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 var logoutBtn = document.getElementById("logoutBtn")
+var cartBtn = document.getElementById("cartBtn")
+var signupBtn = document.getElementById("signUp")
+var userPageBtn = document.getElementById("userPage")
 
 //Current State
 onAuthStateChanged(auth, (user)=>{
   if(user){ // user is signed in
     btn.setAttribute("hidden", "hidden")
     logoutBtn.removeAttribute("hidden")
+    cartBtn.removeAttribute("hidden")
+    userPageBtn.removeAttribute("hidden")
+    signupBtn.setAttribute("hidden", "hidden")
   } else { // user is signed out
     logoutBtn.setAttribute("hidden", "hidden")
+    userPageBtn.setAttribute("hidden", "hidden")
+    cartBtn.setAttribute("hidden", "hidden")
+    signupBtn.removeAttribute("hidden")
     btn.removeAttribute("hidden")
   }
 })

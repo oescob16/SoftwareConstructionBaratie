@@ -8,13 +8,17 @@ import {
     doc,
     getDoc,
     onSnapshot,
+    getDocs,
+    DocumentSnapshot,
+    setDoc,
 } from 'firebase/firestore'
 
 import {
     getAuth,
     onAuthStateChanged,
     updateCurrentUser,
-    updateProfile
+    updateProfile,
+    updateEmail
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -38,37 +42,14 @@ console.log("auth.js: RUNNING");
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        var userDetails;
-
-        var name, email;
-
-        const docRef = doc(db, "Users", user.uid.toString());
-        onSnapshot(docRef, (doc) => {
-            console.log(doc.data(), doc.id);
-            name = doc.data().toString();
-        })
-
-        document.write(name);
-
-        if(docRef.exists()){
-            console.log(docRef.data());
-            mainIfAuth()
-        } else {
-            mainIfNotAuth();
-        }
+        displayUserData(user)
+        updateUserData(user);
     } else {
         mainIfNotAuth();
     }
 });
 
-async function documentGetter(){
-    return await getDoc(doc(db, 'Users', user.uid));
-}
-
-function mainIfAuth(){
-
-    displayName(auth.currentUser.Name);
-    displayEmail(auth.currentUser.email);
+function updateUserData(user){
 
     var el1 = document.getElementById('editEmail');
     if(el1){
@@ -82,9 +63,16 @@ function mainIfAuth(){
         //functionality for user authorization
         el1.addEventListener("click", (event)=>{
             event.preventDefault();
-            const email = document.getElementById("editEmailLive").value;
+            const newEmail = document.getElementById("editEmailLive").value;
 
-            editEmail(email);
+            console.log("The email you entered: ", newEmail);
+
+            updateEmail(auth.currentUser, newEmail).then(() => {
+                db.collection("Users").doc(user.uid).update({email: newEmail});
+                console.log("Your name has been updated!");
+            }).catch((error) => {
+                console.log("Could not update your name!")
+            });
         })
     }
 
@@ -100,9 +88,18 @@ function mainIfAuth(){
         //functionality for user authorization
         el2.addEventListener("click", (event)=>{
             event.preventDefault();
-            const email = document.getElementById("editNameLive").value;
+            const newName = document.getElementById("editNameLive").value;
 
-            editUsername(email);
+            console.log("Tried to update name to ", newName);
+
+            updateProfile(auth.currentUser, {
+                Name: newName
+            }).then(() => {
+                db.collection("Users").doc(user.uid).update({Name: newName});
+                console.log("Your name has been updated!");
+            }).catch((error) => {
+                console.log("Could not update your name!")
+            });
         })
     }
 
@@ -120,7 +117,7 @@ function mainIfAuth(){
             event.preventDefault();
             const password = document.getElementById("editPasswordLive").value;
 
-            editPassword(password);
+            editPassword(user, password);
         })
     }
 
@@ -132,9 +129,10 @@ function mainIfNotAuth(){
 }
 
 function editUsername(pAuth, newName){
-    updateProfile(pAuth.currentUser, {
+    updateProfile(auth.currentUser, {
         Name: newName
     }).then(() => {
+        db.collection("Users").doc(pAuth.uid).update({Name: newName});
         console.log("Your name has been updated!");
     }).catch((error) => {
         console.log("Could not update your name!")
@@ -157,13 +155,12 @@ function editEmail(pAuth, newEmail){
     updateProfile(pAuth.currentUser, {
         Email: newEmail
     }).then(() => {
-        console.log("Your password has been updated!");
+        console.log("Your Email has been updated!");
     }).catch((error) => {
         console.log("Could not update your password!")
     });
     return;
 }
-
 
 function displayName(usersName){
     document.getElementById("displayNameHtml").innerHTML = usersName;
@@ -173,27 +170,24 @@ function displayEmail(usersEmail){
     document.getElementById("displayEmail").innerHTML = usersEmail;
 }
 
-class User {
-
-    constructor (Name, email, password) {
-        this.Name = Name;
-        this.email = email;
-        this.password = password;
-    }
-
-    userConverter = {
-        toFirestore: (user) => {
-            return {
-                Name : user.Name,
-                email : user.email,
-                password : user.password
-            };
-        },
-        fromFirestore: (snapshot, options) => {
-            const data = snapshot.data(options);
-            return new User(data.Name, data.email, data.password);
-        }
-    }
+function displayUserData(user){
+    getDocs(usersRef).then(snapshot => {//
+        console.log(snapshot.docs)
+        snapshot.docs.forEach(
+            function(ChildSnapshot){
+                let name = ChildSnapshot.id;
+                let userName = ChildSnapshot.get('Name');
+                let userEmail = ChildSnapshot.get('email');
+                if(user.email == userEmail){
+                    displayName(userName);
+                    displayEmail(userEmail)
+                }
+            }
+        );
+    }).catch(err => {
+        console.log(err.message)
+    })
 }
+
 
 

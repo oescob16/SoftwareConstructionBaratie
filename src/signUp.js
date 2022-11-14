@@ -71,7 +71,7 @@ addAccountForm.addEventListener('submit', (event) => {
                     password: addAccountForm.psw.value
                 })
                     .then(() => {
-                        //location.href = './homePage.html#CreatedAccount';
+                        location.href = '../dist/mainPage.html';
                         addAccountForm.reset();
                     })
                 })

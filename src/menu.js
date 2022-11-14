@@ -114,6 +114,7 @@ window.onload(fetchAllData());
 // TODO: Implement this function too add selected food item to cart in db
 function addToCart(itemName, itemPrice){
     onAuthStateChanged(auth, (user) =>{
+        alert("Added to cart");
         console.log("Current userID (uid):", user.uid);
         const userCart = doc(db,"Users/"+user.uid+"/CartItems/" + itemName);
         let itemQuantity = 1;

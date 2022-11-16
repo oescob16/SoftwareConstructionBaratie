@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from "firebase/analytics";
+import { message } from './alert';
 
 import {
     getFirestore,
@@ -54,7 +55,7 @@ addAccountForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     if (addAccountForm.psw.value !== addAccountForm.pswrepeat.value){
-        console.log("Passwords do not match")
+        message("Passwords do not match", "Please try again!", "error", true)
     }
     else {
         const name = addAccountForm.name.value;
@@ -71,6 +72,7 @@ addAccountForm.addEventListener('submit', (event) => {
                     password: addAccountForm.psw.value
                 })
                     .then(() => {
+                        message("Account Created Successfully", "Welcome to El Baratie Mexicano", "success", false)
                         location.href = '../dist/mainPage.html';
                         addAccountForm.reset();
                     })

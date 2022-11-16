@@ -197,8 +197,11 @@ onAuthStateChanged(auth, (user) => {
         var del = document.createElement("button");
         var br = document.createTextNode('    .');
         plus.id = index;
+        plus.className = "quantity";
         min.id = index+1;
+        min.className = "quantity";
         del.id = "d"+index;
+        del.className = "quantity";
 
         td0.innerHTML = name;
         td1.innerHTML = "$"+price;

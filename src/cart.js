@@ -155,7 +155,8 @@ onAuthStateChanged(auth, (user) => {
         var plus = document.createElement("button");
         var min = document.createElement("button");
         var del = document.createElement("button");
-        var br = document.createTextNode('-');
+        var br = document.createTextNode (" ");
+        var br2= document.createElement ("span");
         plus.id = index;
         plus.className = "quantity";
         min.id = index+1;
@@ -181,6 +182,7 @@ onAuthStateChanged(auth, (user) => {
         trow.appendChild(td2);
         trow.appendChild(min);
         trow.appendChild(br);
+        trow.appendChild(br2);
         trow.appendChild(del);
         tbody1.appendChild(trow);
         console.log("addItemtoTable")

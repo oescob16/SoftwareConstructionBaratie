@@ -11,17 +11,6 @@
     <link rel = "icon" href="images/onep.ico" type = "image/x-icon">
 </head>
 <style>
-    /* <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Styles from Boostrap and the css file -->
-    
-    <title>Cart</title> <!--  Page Name-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
-</head> */
     /* Login css content */
     .loginthing{
       border: none;
@@ -193,6 +182,13 @@
   background-image: url("https://imagenes.20minutos.es/files/image_990_v3/uploads/imagenes/2022/06/07/concept-art-del-baratie-en-one-piece.jpeg");
   background-size: cover;
 }
+
+  .cart_item{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    width: 75%;
+  }
+
   </style>
 <body>
 </style>
@@ -252,6 +248,7 @@
     </div>
   </div>
 
+    <!-- Cart Item Table-->
     <div class="cart_items_box">
       <h1 class="heading">
         <p style="color:rgba(0, 0, 0, 0.911);font-size:40px;"> <b>My Cart</b> </p> 
@@ -259,9 +256,9 @@
       <hr style="height:1px;border-width:1px;background-color:rgb(139, 59, 59);margin-bottom:5rem;">
         <table class="cart_item" id="item_list">
             <tr>
-                <th>Name:</th>
-                <th>Price:</th>
-                <th>Quantity:</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th><th >Quantity</th></th>
             </tr>
         </table>        
     </div>

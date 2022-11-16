@@ -132,10 +132,8 @@ function editUsername(pAuth, newName){
 
 async function editUsernameInFirebase(pAuth, newName){
     userData = getUserData(pAuth);
-    await setDoc(doc(db, 'Users', pAuth.uid), {
-        Name: newName,
-        password: userData['password'],
-        email: userData['email']
+    await updateDoc(doc(db, 'Users', pAuth.uid), {
+        Name: newName
     });
 }
 
@@ -154,10 +152,8 @@ function editPassword(pAuth, newPassword){
 
 async function editPasswordInFirebase(pAuth, newPassword){
     userData = getUserData(pAuth);
-    await setDoc(doc(db, 'Users', pAuth.uid), {
-        Name: userData['name'],
-        password: newPassword,
-        email: userData['email']
+    await updateDoc(doc(db, 'Users', pAuth.uid), {
+        password: newPassword
     });
 }
 
@@ -176,9 +172,7 @@ function editEmail(pAuth, newEmail){
 
 async function editEmailInFirebase(pAuth, newEmail){
     userData = getUserData(pAuth);
-    await setDoc(doc(db, 'Users', pAuth.uid), {
-        Name: userData['name'],
-        password: userData['password'],
+    await updateDoc(doc(db, 'Users', pAuth.uid), {
         email: newEmail
     });
 }

@@ -23,7 +23,7 @@ module.exports = {
     signUp: './src/signUp.js',
     login: ['./src/loginFunctions.js', './src/auth.js'],
     cart: ['./src/loginFunctions.js', './src/auth.js', './src/cart.js'],
-    userPage: './src/user.js'
+    userPage: ['./src/loginFunctions.js', './src/auth.js', './src/user.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

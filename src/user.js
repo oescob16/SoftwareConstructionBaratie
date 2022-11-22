@@ -123,6 +123,7 @@ function editUsername(pAuth, newName){
     }).then(() => {
         console.log("Your name has been updated!");
         editUsernameInFirebase(pAuth, newName);
+        location.reload();
     }).catch((error) => {
         console.log("Could not update your name!")
         console.log(error);
@@ -143,6 +144,7 @@ function editPassword(pAuth, newPassword){
     }).then(() => {
         console.log("Your password has been updated!");
         editPasswordInFirebase(pAuth, newName);
+        location.reload();
     }).catch((error) => {
         console.log("Could not update your password!");
         console.log(error);
@@ -163,6 +165,7 @@ function editEmail(pAuth, newEmail){
     }).then(() => {
         console.log("Your Email has been updated!");
         editEmailInFirebase(newEmail);
+        location.reload();
     }).catch((error) => {
         console.log("Could not update your password!");
         console.log(error);

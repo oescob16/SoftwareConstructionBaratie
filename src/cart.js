@@ -125,6 +125,10 @@ onAuthStateChanged(auth, (user) => {
             quantity: array[clicked.id-1][2] - 1
           })
           .then(()=>{
+            console.log(array[clicked.id-1[2]])
+            if(array[clicked.id-1][2] < 2) {
+              deleteDoc(cart_item)
+            }
             location.reload();
           })
         });

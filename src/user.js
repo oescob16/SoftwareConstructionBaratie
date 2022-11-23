@@ -12,6 +12,7 @@ import {
     DocumentSnapshot,
     updateDoc,
     setDoc,
+    waitForPendingWrites,
 } from 'firebase/firestore'
 
 import {
@@ -123,7 +124,6 @@ function editUsername(pAuth, newName){
     }).then(() => {
         console.log("Your name has been updated!");
         editUsernameInFirebase(pAuth, newName);
-        location.reload();
     }).catch((error) => {
         console.log("Could not update your name!")
         console.log(error);
@@ -132,7 +132,7 @@ function editUsername(pAuth, newName){
 }
 
 async function editUsernameInFirebase(pAuth, newName){
-    userData = getUserData(pAuth);
+    let userData = getUserData(pAuth);
     await updateDoc(doc(db, 'Users', pAuth.uid), {
         Name: newName
     });
@@ -143,8 +143,7 @@ function editPassword(pAuth, newPassword){
         Password: newPassword
     }).then(() => {
         console.log("Your password has been updated!");
-        editPasswordInFirebase(pAuth, newName);
-        location.reload();
+        editPasswordInFirebase(pAuth, newPassword);
     }).catch((error) => {
         console.log("Could not update your password!");
         console.log(error);
@@ -153,19 +152,18 @@ function editPassword(pAuth, newPassword){
 }
 
 async function editPasswordInFirebase(pAuth, newPassword){
-    userData = getUserData(pAuth);
+    let userData = getUserData(pAuth);
     await updateDoc(doc(db, 'Users', pAuth.uid), {
         password: newPassword
     });
 }
 
 function editEmail(pAuth, newEmail){
+    editEmailInFirebase(newEmail);
     updateProfile(pAuth.currentUser, {
         Email: newEmail
     }).then(() => {
         console.log("Your Email has been updated!");
-        editEmailInFirebase(newEmail);
-        location.reload();
     }).catch((error) => {
         console.log("Could not update your password!");
         console.log(error);
@@ -174,7 +172,7 @@ function editEmail(pAuth, newEmail){
 }
 
 async function editEmailInFirebase(pAuth, newEmail){
-    userData = getUserData(pAuth);
+    let userData = getUserData(pAuth);
     await updateDoc(doc(db, 'Users', pAuth.uid), {
         email: newEmail
     });
@@ -209,7 +207,7 @@ function displayUserData(user){
 }
 
 function getUserData(user){
-    userDetails = [];
+    let userDetails = [];
     getDocs(usersRef).then(snapshot => {//
         console.log(snapshot.docs)
         snapshot.docs.forEach(

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <style>
+        /* Login css content */
+        .loginthing{
+          border: none;
+          background-color: #222222;
+          color: #9d9d9d;
+          margin-top: 15px;
+        }
+      
+        .loginthing:hover{
+          color: whitesmoke;
+      
+        }
+      
+        .modal-content{
+          width: 200px; 
+          height: 150px;
+          position: absolute;
+          left: 950px;
+          top: 50px;
+      
+        }
+      
+        .popup-content{
+          margin-top: 10px;
+          margin-left: 10px;
+        }
+
+        .hide-box{
+            display:none;
+        }
+      
+        /* main page content */
+        #container {
+          position: center;
+          margin-top: -20px;
+          height: 100vh;
+          background: url('./images/baratie.jpeg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          padding-top: 30px;
+          padding-left: 50px;
+          padding-right: 50px;
+          
+        }
+      
+        #background {
+          background: black;
+          padding: 15px;
+          border-radius: 3px;
+          height: 810px;
+          width: 1440px;
+          margin-top: -50px;
+          margin-left: -50px;
+          background: rgba(0,0,0,0.6);
+        }
+      
+        #content h1 {
+          color: #ffffff;
+          font-size: 100px;
+          left: 0;
+          line-height: 200px;
+          margin-top: -150px;
+          position: absolute;
+          text-align: center;
+          top: 50%;
+          width: 100%;
+          font-family:cursive;
+        }
+      
+        a.shop-now-button{
+          left: 40%;
+          top: 85%;
+          height: 70px;
+          width: 300px;
+          font-size: 30px;
+          margin-top: -150px;
+          position: absolute;
+          display:inline-block;
+          padding:0.35em 1.2em;
+          border:0.1em solid #FFFFFF;
+          margin:0 0.3em 0.3em 0;
+          border-radius:0.12em;
+          box-sizing: border-box;
+          text-decoration:none;
+          font-family:'Roboto',sans-serif;
+          font-weight:300;
+          color:#FFFFFF;
+          text-align:center;
+          transition: all 0.2s;
+        }
+        a.shop-now-button:hover{
+          color:#000000;
+          background-color:#FFFFFF;
+          text-decoration: none;
+        }
+        @media all and (max-width:30em){
+          a.shop-now-button{
+            display:block;
+            margin:0.4em auto;
+          }
+        }
+      
+        .footer-dark {
+          padding: 30px 0;
+          color: #f0f9ff;
+          background-color: #282d32;
+        }
+      
+        .footer-dark .item.social {
+          text-align: center;
+        }
+        
+        @media (max-width:991px) {
+          .footer-dark .item.social {
+            text-align: center;
+            margin-top: 20px;
+          }
+        }
+      
+        .footer-dark .item.social > a {
+          font-size: 20px;
+          width: 36px;
+          height: 36px;
+          line-height: 36px;
+          display: inline-block;
+          text-align: center;
+          border-radius: 50%;
+          box-shadow: 0 0 0 1px rgba(255,255,255,0.4);
+          margin: 0 8px;
+          color: #fff;
+          opacity: 0.75;
+        }
+        
+        .footer-dark .item.social > a:hover {
+          opacity: 0.9;
+          text-decoration: none;
+        }
+      
+        .footer-dark .item.social > a:link {
+          text-decoration: none;
+        }
+      
+        .footer-dark .copyright {
+          text-align: center;
+          padding-top: 24px;
+          opacity: 0.3;
+          font-size: 13px;
+          margin-bottom: 0;
+        }
+        
+      </style>
+
+<!-- Head Section with link to CSS -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles from Boostrap and the css file -->
+    
+    <title>Home</title> <!--  Page Name-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel = "icon" href="images/onep.ico" type = "image/x-icon">
+</head>
+
+<script language="JavaScript">
+    function setVisibility(id, visibility) {
+    document.getElementById(id).style.display = visibility;
+    }
+    </script>
+
+<!-- Body Section -->
+
+<body class="body">
+    <nav class="navbar navbar-inverse navbar-expand-lg py-5 navbar-dark bg-dark shadow-sm">
+        <div class="container-fluid"> 
+          <ul class="nav navbar-nav">
+            <li > <img src="images/logo.png" width="100" alt="" class="d-inline-block align-middle mr-2"> </li>
+            <li> <a href="mainPage.html" ><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            
+            <li><a href="about.html" > <span class="glyphicon glyphicon-book"></span> About </a></li>
+            <li><a href="menu.html"><span class="glyphicon glyphicon-cutlery"></span> Menu</a></li>
+            
+            <li>
+              
+              <button id="cartBtn" onclick="window.location.href='cart.html';" class="loginthing" hidden="hidden"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</button>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li> <button id="userPage" class="loginthing" onclick="window.location.href='userPage.html';" hidden="hidden"> <span class="glyphicon glyphicon-briefcase"></span> User Page </button>
+            </li>
+            <li>
+              <button id="signUp" class="loginthing" onclick="window.location.href='signUp.html';"><span class="glyphicon glyphicon-user"></span> Sign Up</button>
+            </li>
+            <li>
+              <button id="myBtn" class="loginthing"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+            </li>
+            <li>
+              <button id="logoutBtn" class="loginthing" hidden="hidden"><span class="glyphicon glyphicon-log-out"></span> Logout</button>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    
+
+    <!-- this section is for the box displayed in the middle of the screen.  -->
+    <section id="content" class="grey-area">
+        <div class="container">
+            <div class="row">
+                <div id="main" class="col-sms-6 col-sm-8 col-md-9">
+                    <div class="booking-section bandit-box">
+                        <form class="booking-form" >
+                            
+                            <hr>
+                            <!-- Card Information div -->
+                            <div class="card-information">
+                                <h2>Card Information</h2>
+                                <!-- Credit Card Type and Name fields -->
+                                <div class="form-group row">
+                                    <div class="col-sm-6 col-md-5">
+                                        <label>Credit Card Type</label>
+                                        <div class="selector">
+                                            <select class="full-width">
+                                                <option>select a card</option>
+                                                <option>Mastercard</option>
+                                                <option>Visa</option>
+                                                <option>Apple Pay</option>
+                                                
+                                            </select>
+                                            <span class="custom-select full-width"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-5">
+                                        <label>Card Holder Name</label>
+                                        <input type="text" class="input-text full-width" value placeholder="Name on card">
+                                    </div>
+                                </div>
+                                <!-- Card Number and Card CVV fields -->
+                                <div class="form-group row">
+                                    <div class="col-sm-6 col-md-5">
+                                        <label>Card Number</label>
+                                        <input type="text" class="input-text full-width" value placeholder="Card Number">
+                                    </div>
+                                    <div class="col-sm-6 col-md-5">
+                                        <label>Card Indentification Number</label>
+                                        <input type="text" class="input-text full-width" value placeholder="CVV">
+                                    </div>
+                                </div>
+                                <!-- Exp Date and Zip fields -->
+                                <div class="form-group row">
+                                    <div class="col-sm-6 col-md-5">
+                                        <label>Expiration Date</label>
+                                        <div class="constant-column-2">
+                                            <input type="text" class="input-text full-width" value placeholder="MM/YYYY">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 col-md-5">
+                                        <label>Billing Zip Code</label>
+                                        <input type="text" class="input-text full-width" value placeholder="zip">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <!-- Terms and conditions -->
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" required>
+                                        By continuing, you agree to the 
+                                        <a >
+                                            <span class="skin-color">Terms and Conditions</span>
+                                        </a>
+                                         
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- Confirm booking  -->
+                            <div class="form-group row">
+                                <div class="col-sm-6 col-md-5">
+                                   
+                                   <input type=button name=type value='MAKE PAYMENT' onclick="setVisibility('sub3', 'inline');";>
+                                   
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="sub3" class="hide-box" >AQUI PONES CUANTO TIENE DISPONIBLE EL USER Y CUANTO SE LE VA A COBRAR Y CUANTO LE QUEDARIA</div>
+
+
+      <!-- The Modal -->
+  <div id="myModal" class="modal">
+    
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="popup" id="loginLive">
+          <div class="popup-content">
+              <img src="images/login.png"
+              width="30" 
+              height="30"
+              />
+              
+              <form>
+                  <input type="text" placeholder="Email" id="loginemailLive" required>
+                  <input type="password" placeholder="Password" id="loginpasswordLive" required>
+                  
+                  <input type="submit" id="login">
+              </form>
+          </div>
+      </div>
+    </div>
+  </div>
+    
+
+    <script src="login.bundle.js"></script>
+
+
+    
+   
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+ 
+     
+</body>
+

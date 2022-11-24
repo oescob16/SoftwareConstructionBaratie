@@ -12,6 +12,7 @@ import {
     getDoc,
     connectFirestoreEmulator,
     deleteDoc,
+    addDoc,
 } from 'firebase/firestore'
 
 import {
@@ -49,8 +50,19 @@ onAuthStateChanged(auth, (user) => {
       console.log("Current userID (uid):", user.uid);
       console.log("Welcome", user.email)
       const colRef = collection(db, 'Users');
+      const usr = doc(db,"Users/"+user.uid)
 
-      const userDocRef = doc(db,"Users/"+user.uid)
+      function checkCard(usrCart) {
+        let cartbool = false
+        onSnapshot(usr, (doc) => {
+          cartbool = doc.data().Creditcard;
+          usrCart(cartbool)
+        })
+      }
+      
+
+
+      //const userDocRef = doc(db,"Users/"+user.uid)
       const userCartcolref = collection(db,"Users/"+user.uid+"/CartItems");
       //This function allows us to extract/callback an array of food items to any part of our code.
       function cartArray(callBack) {
@@ -80,7 +92,35 @@ onAuthStateChanged(auth, (user) => {
       const minus_val = "-";
       const del_val = 'Remove';
       const total = document.getElementById("total");
-      
+      const order = document.getElementById("order");
+      order.onclick = function() {
+        completeOrder();
+      }
+
+      function completeOrder() {
+        //Check if user has credit card
+        checkCard((bool)=> {
+          if(bool) {
+            cartArray((array)=>{
+              var tbody = document.getElementById("item_list");
+              tbody.innerHTML = '';
+              total.innerHTML = '';
+              //Iterate through or documents array and add each item into the Orders collection
+              for(let i = 0; i < array.length; i++) {
+                const doc_ref = doc(db,"Users/"+user.uid+"/Orders/"+array[i][0]);
+                setDoc(doc_ref, {price: array[i][1]})
+              }
+              //Iterate through our documents array and delete each item from the cart items then reload the page.
+              for(let i = 0; i < array.length; i++) {
+                let del_ref = doc(db,"Users/"+user.uid+"/CartItems/"+array[i][0]);
+                deleteDoc(del_ref).then(()=>{
+                  location.reload();
+                })
+              }
+            })
+          }
+        })
+      }
       changeTotal();
       //This function serves to display the total amount to pay for the ordered food.
       function changeTotal() {

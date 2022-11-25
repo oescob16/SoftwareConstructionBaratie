@@ -120,6 +120,7 @@ onAuthStateChanged(auth, (user) => {
             })
           }
         })
+        return alert("Order Complete")
       }
       changeTotal();
       //This function serves to display the total amount to pay for the ordered food.

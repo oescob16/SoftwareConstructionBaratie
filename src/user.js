@@ -140,7 +140,7 @@ async function editUsernameInFirebase(pAuth, newName){
 
 function editPassword(pAuth, newPassword){
     updateProfile(pAuth.currentUser, {
-        Password: newPassword
+        password: newPassword
     }).then(() => {
         console.log("Your password has been updated!");
         editPasswordInFirebase(pAuth, newPassword);
@@ -159,11 +159,11 @@ async function editPasswordInFirebase(pAuth, newPassword){
 }
 
 function editEmail(pAuth, newEmail){
-    editEmailInFirebase(newEmail);
     updateProfile(pAuth.currentUser, {
-        Email: newEmail
+        email: newEmail
     }).then(() => {
         console.log("Your Email has been updated!");
+        editEmailInFirebase(newEmail);
     }).catch((error) => {
         console.log("Could not update your password!");
         console.log(error);

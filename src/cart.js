@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from "firebase/analytics";
-
+import { message } from './alert'
 import {
     getFirestore,
     collection,
@@ -120,7 +120,9 @@ onAuthStateChanged(auth, (user) => {
             })
           }
         })
-        return alert("Order Complete")
+        
+        message("Order Complete",'', "success", false)
+        
       }
       changeTotal();
       //This function serves to display the total amount to pay for the ordered food.
@@ -200,7 +202,7 @@ onAuthStateChanged(auth, (user) => {
         var plus = document.createElement("button");
         var min = document.createElement("button");
         var del = document.createElement("button");
-        var br = document.createTextNode('-');
+        
         plus.id = index;
         plus.className = "quantity";
         min.id = index+1;
@@ -225,7 +227,6 @@ onAuthStateChanged(auth, (user) => {
         trow.appendChild(plus);
         trow.appendChild(td2);
         trow.appendChild(min);
-        trow.appendChild(br);
         trow.appendChild(del);
         tbody1.appendChild(trow);
         console.log("addItemtoTable")

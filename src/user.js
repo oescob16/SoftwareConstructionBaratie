@@ -20,7 +20,8 @@ import {
     onAuthStateChanged,
     updateCurrentUser,
     updateProfile,
-    updateEmail
+    updateEmail,
+    updatePassword
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -139,9 +140,7 @@ async function editUsernameInFirebase(pAuth, newName){
 }
 
 function editPassword(pAuth, newPassword){
-    updateProfile(pAuth.currentUser, {
-        password: newPassword
-    }).then(() => {
+    updatePassword(pAuth, newPassword).then(() => {
         console.log("Your password has been updated!");
         editPasswordInFirebase(pAuth, newPassword);
     }).catch((error) => {

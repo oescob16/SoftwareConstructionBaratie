@@ -56,7 +56,6 @@ function addItemsToMenu(name, description, image, price, type){
     _button.type = "button";
     _button.value = "Add to Cart";
     _button.onclick = () => addToCart(name, price);
-    // _button.onclick = () => alert(name);
     
     _name.innerHTML = name;
     _description.innerHTML = description;
@@ -112,10 +111,8 @@ function fetchAllData() {
 
 window.onload(fetchAllData());
 
-// TODO: Implement this function too add selected food item to cart in db
 function addToCart(itemName, itemPrice){
     onAuthStateChanged(auth, (user) =>{
-        
         message("Added to cart", "", "success", false)
         console.log("Current userID (uid):", user.uid);
         const userCart = doc(db,"Users/"+user.uid+"/CartItems/" + itemName);
@@ -128,9 +125,4 @@ function addToCart(itemName, itemPrice){
     })
 };
 
-// TODO
-// $('.add-to-cart-btn').bind('click', () => {
-//     //addToCart(foodItem);
-    
-// });
-
+module.exports = addItemsToMenu;

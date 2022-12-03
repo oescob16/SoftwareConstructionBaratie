@@ -5,7 +5,7 @@ firestore database.
 
 // Setting up firebase app to use in current file
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
+
 
 import {
     getFirestore,
@@ -13,7 +13,7 @@ import {
     getDocs,
 } from 'firebase/firestore'
 
-//import { firebaseConfig } from "./firebaseConfig.js";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyBZiOp9t_Orzgm8PQlZB5QNzF9mt_CXkY4",

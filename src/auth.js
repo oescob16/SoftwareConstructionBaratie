@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
     getAuth,
-    createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
@@ -28,7 +27,7 @@ const auth = getAuth(app);
 console.log("auth.js: RUNNING");
 
 // Sign into account
-var el2 = document.getElementById('login');
+const el2 = document.getElementById('login');
 if(el2){
     //functionality of signing in the user after clicking log in
     el2.addEventListener("keypress", function(event){
@@ -64,7 +63,7 @@ if(el2){
 
                     })
                     .catch((error)=>{
-                        var errorCode = error.code;
+                        const errorCode = error.code;
                         //functionality of displaying the alerts depending on user input
                         if (errorCode === 'auth/wrong-password'){
                             message("Wrong Password", "Try again!", "error", true)
@@ -76,7 +75,7 @@ if(el2){
     })
 }
 //Sign out functionality
-var el3 = document.getElementById('logoutBtn');
+const el3 = document.getElementById('logoutBtn');
 el3.addEventListener('click', (event)=>{
     event.preventDefault();
     signOut(auth)

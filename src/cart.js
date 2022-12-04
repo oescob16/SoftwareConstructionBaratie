@@ -1,28 +1,22 @@
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
+
 
 import {
     getFirestore,
     collection,
-    getDocs,
     setDoc,
     updateDoc,
     onSnapshot,
     doc,
-    getDoc,
-    connectFirestoreEmulator,
     deleteDoc,
-    addDoc,
 } from 'firebase/firestore'
 
 import {
-    createUserWithEmailAndPassword,
     getAuth, 
     onAuthStateChanged
 } from 'firebase/auth';
 
 
-//import { firebaseConfig } from "./firebaseConfig.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBZiOp9t_Orzgm8PQlZB5QNzF9mt_CXkY4",

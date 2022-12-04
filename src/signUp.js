@@ -1,14 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
 import { message } from './alert';
 
 import {
     getFirestore,
     collection,
-    getDocs,
     setDoc,
-    updateDoc,
-    onSnapshot,
     doc,
 } from 'firebase/firestore'
 
@@ -17,8 +13,6 @@ import {
     getAuth, 
     onAuthStateChanged
 } from 'firebase/auth';
-
-//import { firebaseConfig } from "./firebaseConfig.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBZiOp9t_Orzgm8PQlZB5QNzF9mt_CXkY4",
@@ -58,7 +52,6 @@ addAccountForm.addEventListener('submit', (event) => {
         message("Passwords do not match", "Please try again!", "error", true)
     }
     else {
-        const name = addAccountForm.name.value;
         const email = addAccountForm.email.value;
         const password = addAccountForm.psw.value;
         createUserWithEmailAndPassword(auth, email, password)

@@ -13,7 +13,6 @@ import {
     onAuthStateChanged
 } from 'firebase/auth';
 import { message } from './alert'
-import { setUserId } from 'firebase/analytics';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBZiOp9t_Orzgm8PQlZB5QNzF9mt_CXkY4",
@@ -36,22 +35,22 @@ const auth = getAuth();
 const colRef = collection(db, 'Food');
 
 function addItemsToMenu(name, description, image, price, type){
-    var ulAppetizers = document.getElementById('menu-list-appetizers');
-    var ulEntrees = document.getElementById('menu-list-entrees');
-    var ulDrinks = document.getElementById('menu-list-drinks');
-    var ulDesserts = document.getElementById('menu-list-desserts');
+    let ulAppetizers = document.getElementById('menu-list-appetizers');
+    let ulEntrees = document.getElementById('menu-list-entrees');
+    let ulDrinks = document.getElementById('menu-list-drinks');
+    let ulDesserts = document.getElementById('menu-list-desserts');
 
-    var box = document.createElement('div');
+    let box = document.createElement('div');
     box.className = "box";
 
-    var content = document.createElement('div');
+    let content = document.createElement('div');
     content.className = "content";
     
-    var _name = document.createElement('h3');
-    var _description = document.createElement('p');
-    var _image = document.createElement('img');
-    var _price = document.createElement('p');
-    var _button = document.createElement('input');
+    let _name = document.createElement('h3');
+    let _description = document.createElement('p');
+    let _image = document.createElement('img');
+    let _price = document.createElement('p');
+    let _button = document.createElement('input');
     _button.className = "add-to-cart-btn";
     _button.type = "button";
     _button.value = "Add to Cart";

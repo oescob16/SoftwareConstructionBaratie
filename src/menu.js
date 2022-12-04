@@ -12,7 +12,7 @@ import {
     getAuth, 
     onAuthStateChanged
 } from 'firebase/auth';
-import { setUserId } from 'firebase/analytics';
+import { message } from './alert'
 
 const firebaseConfig = {
     apiKey: "AIzaSyBZiOp9t_Orzgm8PQlZB5QNzF9mt_CXkY4",
@@ -35,27 +35,26 @@ const auth = getAuth();
 const colRef = collection(db, 'Food');
 
 function addItemsToMenu(name, description, image, price, type){
-    var ulAppetizers = document.getElementById('menu-list-appetizers');
-    var ulEntrees = document.getElementById('menu-list-entrees');
-    var ulDrinks = document.getElementById('menu-list-drinks');
-    var ulDesserts = document.getElementById('menu-list-desserts');
+    let ulAppetizers = document.getElementById('menu-list-appetizers');
+    let ulEntrees = document.getElementById('menu-list-entrees');
+    let ulDrinks = document.getElementById('menu-list-drinks');
+    let ulDesserts = document.getElementById('menu-list-desserts');
 
-    var box = document.createElement('div');
+    let box = document.createElement('div');
     box.className = "box";
 
-    var content = document.createElement('div');
+    let content = document.createElement('div');
     content.className = "content";
     
-    var _name = document.createElement('h3');
-    var _description = document.createElement('p');
-    var _image = document.createElement('img');
-    var _price = document.createElement('p');
-    var _button = document.createElement('input');
+    let _name = document.createElement('h3');
+    let _description = document.createElement('p');
+    let _image = document.createElement('img');
+    let _price = document.createElement('p');
+    let _button = document.createElement('input');
     _button.className = "add-to-cart-btn";
     _button.type = "button";
     _button.value = "Add to Cart";
     _button.onclick = () => addToCart(name, price);
-    // _button.onclick = () => alert(name);
     
     _name.innerHTML = name;
     _description.innerHTML = description;
@@ -111,10 +110,9 @@ function fetchAllData() {
 
 window.onload(fetchAllData());
 
-// TODO: Implement this function too add selected food item to cart in db
 function addToCart(itemName, itemPrice){
     onAuthStateChanged(auth, (user) =>{
-        alert("Added to cart");
+        message("Added to cart", "", "success", false)
         console.log("Current userID (uid):", user.uid);
         const userCart = doc(db,"Users/"+user.uid+"/CartItems/" + itemName);
         let itemQuantity = 1;
@@ -126,9 +124,4 @@ function addToCart(itemName, itemPrice){
     })
 };
 
-// TODO
-// $('.add-to-cart-btn').bind('click', () => {
-//     //addToCart(foodItem);
-    
-// });
-
+module.exports = addItemsToMenu;

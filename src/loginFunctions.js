@@ -17,14 +17,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-var modal = document.getElementById("myModal");
+const modal = document.getElementById("myModal");
     
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-var logoutBtn = document.getElementById("logoutBtn")
-var cartBtn = document.getElementById("cartBtn")
-var signupBtn = document.getElementById("signUp")
-var userPageBtn = document.getElementById("userPage")
+const btn = document.getElementById("myBtn");
+const logoutBtn = document.getElementById("logoutBtn")
+const cartBtn = document.getElementById("cartBtn")
+const signupBtn = document.getElementById("signUp")
+const userPageBtn = document.getElementById("userPage")
 
 //Current State
 onAuthStateChanged(auth, (user)=>{
@@ -44,7 +44,7 @@ onAuthStateChanged(auth, (user)=>{
 })
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {

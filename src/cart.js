@@ -1,5 +1,7 @@
 import { initializeApp } from 'firebase/app';
 
+import { getAnalytics } from "firebase/analytics";
+import { message } from './alert'
 
 import {
     getFirestore,
@@ -15,7 +17,6 @@ import {
     getAuth, 
     onAuthStateChanged
 } from 'firebase/auth';
-
 
 
 const firebaseConfig = {
@@ -110,7 +111,9 @@ onAuthStateChanged(auth, (user) => {
             })
           }
         })
-        return alert("Order Complete")
+        
+        message("Order Complete",'', "success", false)
+        
       }
       changeTotal();
       //This function serves to display the total amount to pay for the ordered food.
@@ -183,6 +186,7 @@ onAuthStateChanged(auth, (user) => {
       function addItemtoTable(name,price,quantity,index){
         let tbody1 = document.getElementById("item_list");
         //Creates the rows and buttons for each entry in the table adding index and class names to the buttons.
+
         let trow = document.createElement("tr");
         let td0 = document.createElement("td");
         let td1 = document.createElement("td");
@@ -191,6 +195,15 @@ onAuthStateChanged(auth, (user) => {
         let min = document.createElement("button");
         let del = document.createElement("button");
         let br = document.createTextNode('-');
+
+        var trow = document.createElement("tr");
+        var td0 = document.createElement("td");
+        var td1 = document.createElement("td");
+        var td2 = document.createElement("td");
+        var plus = document.createElement("button");
+        var min = document.createElement("button");
+        var del = document.createElement("button");
+        
         plus.id = index;
         plus.className = "quantity";
         min.id = index+1;
@@ -215,7 +228,6 @@ onAuthStateChanged(auth, (user) => {
         trow.appendChild(plus);
         trow.appendChild(td2);
         trow.appendChild(min);
-        trow.appendChild(br);
         trow.appendChild(del);
         tbody1.appendChild(trow);
         console.log("addItemtoTable")

@@ -195,14 +195,6 @@ onAuthStateChanged(auth, (user) => {
         let min = document.createElement("button");
         let del = document.createElement("button");
         let br = document.createTextNode('-');
-
-        var trow = document.createElement("tr");
-        var td0 = document.createElement("td");
-        var td1 = document.createElement("td");
-        var td2 = document.createElement("td");
-        var plus = document.createElement("button");
-        var min = document.createElement("button");
-        var del = document.createElement("button");
         
         plus.id = index;
         plus.className = "quantity";

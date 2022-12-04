@@ -31,9 +31,6 @@ const firebaseConfig = {
 //init firebase app
 initializeApp(firebaseConfig);
 
-
-
-
 // init services
 const db = getFirestore();
 const auth = getAuth();
@@ -43,7 +40,6 @@ onAuthStateChanged(auth, (user) => {
   if (user !== null) {
       console.log("Current userID (uid):", user.uid);
       console.log("Welcome", user.email)
-      const colRef = collection(db, 'Users');
       const usr = doc(db,"Users/"+user.uid)
 
       function checkCard(usrCart) {
@@ -96,7 +92,7 @@ onAuthStateChanged(auth, (user) => {
         checkCard((bool)=> {
           if(bool) {
             cartArray((array)=>{
-              var tbody = document.getElementById("item_list");
+              let tbody = document.getElementById("item_list");
               tbody.innerHTML = '';
               total.innerHTML = '';
               //Iterate through or documents array and add each item into the Orders collection
@@ -121,7 +117,7 @@ onAuthStateChanged(auth, (user) => {
       function changeTotal() {
         cartArray((array) => {
           let count = 0;
-          for(var i = 0; i < array.length; i++) {
+          for(let i = 0; i < array.length; i++) {
             count += (array[i][1]*array[i][2]);
           }
           total.innerHTML = "<b> Total: </b> $"+count;
@@ -133,7 +129,7 @@ onAuthStateChanged(auth, (user) => {
         cartArray((array) =>{
           console.log(array[clicked.id])
           const cart_item = doc(db,"Users/"+user.uid+"/CartItems/"+array[clicked.id][0]);
-          var tbody = document.getElementById("item_list");
+          let tbody = document.getElementById("item_list");
           tbody.innerHTML = '';
           total.innerHTML = '';
           //Updates the quantity of the item by adding 1 to it when the button is pressed.
@@ -152,7 +148,7 @@ onAuthStateChanged(auth, (user) => {
         cartArray((array) =>{
           console.log(array[clicked.id-1])
           const cart_item = doc(db,"Users/"+user.uid+"/CartItems/"+array[clicked.id-1][0]);
-          var tbody = document.getElementById("item_list");
+          let tbody = document.getElementById("item_list");
           tbody.innerHTML = '';
           total.innerHTML = '';
           //Updates the items quantity by subtracting 1 from it.
@@ -174,7 +170,7 @@ onAuthStateChanged(auth, (user) => {
         const id_d = parseInt(clicked.id.charAt(1));
         cartArray((array) =>{
           const cart_item = doc(db,"Users/"+user.uid+"/CartItems/"+array[id_d][0]);
-          var tbody = document.getElementById("item_list");
+          let tbody = document.getElementById("item_list");
           tbody.innerHTML = '';
           total.innerHTML = '';
           deleteDoc(cart_item)
@@ -185,16 +181,16 @@ onAuthStateChanged(auth, (user) => {
       }
       //Function used to add a new entry into our cart table adding items based on the users cart item collection.
       function addItemtoTable(name,price,quantity,index){
-        var tbody1 = document.getElementById("item_list");
+        let tbody1 = document.getElementById("item_list");
         //Creates the rows and buttons for each entry in the table adding index and class names to the buttons.
-        var trow = document.createElement("tr");
-        var td0 = document.createElement("td");
-        var td1 = document.createElement("td");
-        var td2 = document.createElement("td");
-        var plus = document.createElement("button");
-        var min = document.createElement("button");
-        var del = document.createElement("button");
-        var br = document.createTextNode('-');
+        let trow = document.createElement("tr");
+        let td0 = document.createElement("td");
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let plus = document.createElement("button");
+        let min = document.createElement("button");
+        let del = document.createElement("button");
+        let br = document.createTextNode('-');
         plus.id = index;
         plus.className = "quantity";
         min.id = index+1;
